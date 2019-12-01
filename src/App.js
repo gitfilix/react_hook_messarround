@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react';
-
+import Post from './post';
 const App = ({initialCount}) => {
 
   // get inital value from props (index.js)
@@ -41,6 +41,11 @@ const App = ({initialCount}) => {
   }
 
 
+
+  const removePost = ()=> {
+    setPosts([])
+  }
+
   return (
     <>
       <h1>Fancy Counter hook</h1>
@@ -51,13 +56,10 @@ const App = ({initialCount}) => {
       <hr />
       <h3>Posts</h3>
       { posts.map((item, i) => (
-        <div key={i}>
-          <div>Name: {item.name}</div>
-          <div>Body: {item.body}</div>
-          <br />
-        </div>
+        <Post item={item} key={i}/>
       ))}
       <button onClick={addOnePost}>Add posts</button>
+      <button onClick={removePost}>Remove posts</button>
 
     </>
   )

@@ -1,23 +1,23 @@
 import React,{ useEffect } from 'react';
 
-const Post = ({item}) => {
+const Post = ({item, i}) => {
 
-    useEffect(()=>{
-        console.log('post mounted/created');
+  useEffect(()=> {
+    console.log('post mounted/created');
 
-        return () => {
-            console.log('component exit')
-        }
-    },[])
+    //clear effect
+    return () => {
+      console.log('component exit');
+    }
+  }, [])
 
-    return(
-        <div>
-            <hr/>
-            <div>Name: {item.name} </div>
-            <div>Body: {item.body} </div>
-        </div>
-    )
-
+  return(
+      <div key={i}>
+        <div>Name: {item.name}</div>
+        <div>Body: {item.body}</div>
+        <br />
+      </div>
+  )
 }
 
 export default Post;
