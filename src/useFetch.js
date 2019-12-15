@@ -1,7 +1,7 @@
 import {useEffect, useState } from 'react'
 
 export const useFetch = (url) => {
-  const [{}, setData] = useState({data:null, loading: false});
+  const [state, setState] = useState({data:null, loading: true});
 
 
   useEffect( () => {
@@ -9,10 +9,11 @@ export const useFetch = (url) => {
     // here instead of json just .text as the api delivers text
       .then(x => x.text())
       .then(y => {
-        console.log(y);
+        setState({data: y, loading: false})
       });
   }, [url])
 
+  return state
 }
 
 export default useFetch
