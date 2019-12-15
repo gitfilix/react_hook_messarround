@@ -10,4 +10,5 @@ Open http://localhost:3000 to view it in the browser.
 
 useEffect:
 
-similar behaviour to componentDidMount and componentDidUpdate
+similar behaviour to componentDidMount and componentDidUpdate.
+-> gets triggered every time component update

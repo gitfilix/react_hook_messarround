@@ -1,5 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import Post from './post';
+import { Hello } from './Hello'
+import useFetch from './useFetch'
 const App = ({initialCount}) => {
 
   // get inital value from props (index.js)
@@ -46,6 +48,21 @@ const App = ({initialCount}) => {
     setPosts([])
   }
 
+  //useEffect
+  useEffect(()=> {
+    console.log('useEffect count:', count);
+  }, [count])
+
+  useEffect(()=> {
+    console.log('useEffect POSTS');
+  }, [posts])
+
+
+  const [showHello, setShowHello] = useState(true);
+
+  // numbers api http://numbersapi.com/42/trivia
+  const {data, loading } = useFetch('http://numbersapi.com/44/trivia');
+
   return (
     <>
       <h1>Fancy Counter hook</h1>
@@ -60,7 +77,10 @@ const App = ({initialCount}) => {
       ))}
       <button onClick={addOnePost}>Add posts</button>
       <button onClick={removePost}>Remove posts</button>
-
+      <hr />
+      <button onClick={() => setShowHello(!showHello)}>show Hello</button>
+      {showHello && <Hello />}
+      <br />
     </>
   )
 }

@@ -1,11 +1,11 @@
-import React,{ useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const Post = ({item, i}) => {
 
   useEffect(()=> {
-    console.log('post mounted/created');
+    // console.log('post mounted/created');
 
-    //clear effect
+    //clear effect in the callback
     return () => {
       console.log('component exit');
     }
