@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Post from './post';
 import { Hello } from './Hello'
 import useFetch from './useFetch'
@@ -65,10 +65,10 @@ const App = ({initialCount}) => {
 
   return (
     <>
-      <h1>Fancy Counter hook</h1>
+      <h1>App.js: Fancy Counter hook</h1>
       <h3>Count: {count}</h3>
-      <button onClick={addOne}>Add 1 +</button>
-      <button onClick={reduceOne}>reduce 1 -</button>
+      <button onClick={addOne}>Add +1</button>
+      <button onClick={reduceOne}>reduce by 1</button>
       <button onClick={()=> setCount(initialCount)}>Reset</button>
       <hr />
       <h3>Posts</h3>
